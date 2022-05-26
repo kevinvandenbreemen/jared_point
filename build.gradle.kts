@@ -22,12 +22,12 @@ dependencies {
 
 val fatJar = task("FatJar", type = Jar::class) {
 
-    val jarName = "grucd.jar"
+    val jarName = "pointServer.jar"
 
     archiveName = jarName
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     manifest {
-        attributes["Main-Class"] = "com.vandenbreemen.grucd.main.Main"
+        attributes["Main-Class"] = "com.jared.point.main.MainKt"
 
     }
     from(configurations.runtimeClasspath.get().map {

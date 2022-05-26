@@ -1,4 +1,4 @@
-import com.jared.point.main.PointServer
+package com.jared.point.main
 
 fun main() {
     PointServer().setup()
