@@ -14,4 +14,4 @@ RUN ./gradlew build && ./gradlew FatJar && mv build/libs/pointServer.jar ./ && e
 
 EXPOSE 8888
 
-CMD ["java", "-jar", "pointServer.jar"]
+CMD ["java", "-jar", "pointServer.jar", "-reg", "http://point_registry:8888", ">", "jared.log"]

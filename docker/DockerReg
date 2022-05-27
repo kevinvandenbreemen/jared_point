@@ -10,8 +10,8 @@ COPY ./gradlew ./
 COPY ./build.gradle.kts ./
 COPY ./settings.gradle ./
 
-RUN ./gradlew build && ./gradlew FatJar && mv build/libs/pointServer.jar ./ && echo "Built.  Have phun :)"
+RUN ./gradlew build && ./gradlew FatJar && mv build/libs/pointServer.jar ./ && echo "Built.  Remember to name the container running me to *** point_registry ***!!!!!!!!!!! :)"
 
 EXPOSE 8888
 
-CMD ["java", "-jar", "pointServer.jar", "r"]
+CMD ["java", "-jar", "pointServer.jar", "-r", ">", "jared.log"]

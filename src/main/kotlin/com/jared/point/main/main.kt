@@ -1,18 +1,53 @@
 package com.jared.point.main
 
+import com.jared.point.client.Network
 import com.jared.point.registry.Registry
 import com.jared.point.registry.RegistryItem
+import com.jared.point.scheduler.JobRunner
+import com.vandenbreemen.kevincommon.cmd.CommandLineParameters
+import mu.KotlinLogging
+import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
 
-    if(args.contains("r")) {
+    val params = CommandLineParameters(args)
+
+    val logger = KotlinLogging.logger {  }
+
+    //  Subsystems.  For now these will be initialized here and then meted out to other components
+    //  as the system is built up
+    val jobRunner = JobRunner().also { it.start() }
+
+    if(!params.flag("r")) {
+        params.addAtLeast("reg", "url of point registry (including its port)")
+    }
+
+
+
+    //  Setup logic proper
+
+    //  Are we the registry?
+    if(params.flag("r")) {
         val reg = Registry()
         reg.add(RegistryItem("http://10.0.0.29", 8888))
 
         RegistryServer(8888, reg).setup()
-        println("Registry started \uD83C\uDF85")
+        logger.info("Registry started \uD83C\uDF85")
         return
     }
 
+    //  Otehrwise we're a regular point and not the registry
+    if(!params.validate()) {
+        params.document()
+        exitProcess(1)
+    }
+
+    //  Set up the network for later
+    val network = Network(params.getArgument("reg"))
+    jobRunner.addTask {
+        network.update()
+    }
+
     PointServer(8888).setup()
+    logger.info { "Point client started ⯍" }
 }

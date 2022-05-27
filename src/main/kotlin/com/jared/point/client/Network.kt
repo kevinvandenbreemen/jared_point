@@ -32,8 +32,3 @@ class Network(registryUrl: String) {
     }
 
 }
-
-fun main() {
-    Network("http://localhost:9999").update()
-    Thread.sleep(10000)
-}

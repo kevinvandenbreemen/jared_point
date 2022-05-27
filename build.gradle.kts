@@ -12,6 +12,7 @@ version "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -38,6 +39,8 @@ dependencies {
 
     val loggingVersion = "2.1.23"
     implementation("io.github.microutils:kotlin-logging-jvm:$loggingVersion")
+
+    implementation("com.github.kevinvandenbreemen:kevin-common:1.0.6.1000")
 
 }
 
