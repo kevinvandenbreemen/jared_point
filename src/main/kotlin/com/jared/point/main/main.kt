@@ -1,5 +1,5 @@
 package com.jared.point.main
 
 fun main() {
-    PointServer().setup()
+    PointServer(8888).setup()
 }
