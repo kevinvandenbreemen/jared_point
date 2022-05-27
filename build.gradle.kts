@@ -27,6 +27,18 @@ dependencies {
 
     val retrofitVersion = "2.9.0"
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    val coroutinesVersion = "1.6.1"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+
+    val slf4jVersion = "1.7.36"
+    implementation("org.slf4j:slf4j-simple:$slf4jVersion")
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
+
+    val loggingVersion = "2.1.23"
+    implementation("io.github.microutils:kotlin-logging-jvm:$loggingVersion")
+
 }
 
 val fatJar = task("FatJar", type = Jar::class) {

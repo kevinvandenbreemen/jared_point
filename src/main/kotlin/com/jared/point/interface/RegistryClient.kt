@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface RegistryClient {
 
     @GET("/list")
-    fun list(): Response<List<RegistryItem>>
+    suspend fun list(): Response<List<RegistryItem>>
 
 }
