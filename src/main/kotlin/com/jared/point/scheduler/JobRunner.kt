@@ -35,7 +35,9 @@ class JobRunner {
             jobs.forEach { action->action() }
             logger.info { "Executed all tasks" }
 
-            Thread.sleep(DELAY)
+            delay(DELAY)
+
+        }.invokeOnCompletion {
             run()
         }
     }
