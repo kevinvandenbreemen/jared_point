@@ -42,6 +42,8 @@ dependencies {
 
     implementation("com.github.kevinvandenbreemen:kevin-common:1.0.6.1000")
 
+    testImplementation("org.amshove.kluent:kluent:1.68")
+
 }
 
 val fatJar = task("FatJar", type = Jar::class) {

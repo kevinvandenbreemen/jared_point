@@ -3,6 +3,7 @@ package com.jared.point.scheduler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import mu.KotlinLogging
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -29,13 +30,14 @@ class JobRunner {
     }
 
     private fun run() {
-        CoroutineScope(Dispatchers.Default).run {
+        CoroutineScope(Dispatchers.Default).launch {
             logger.info { "Running background tasks...." }
             jobs.forEach { action->action() }
             logger.info { "Executed all tasks" }
+
+            Thread.sleep(DELAY)
+            run()
         }
-        Thread.sleep(DELAY)
-        run()
     }
 
 }

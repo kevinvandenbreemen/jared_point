@@ -20,6 +20,8 @@ fun main(args: Array<String>) {
 
     if(!params.flag("r")) {
         params.addAtLeast("reg", "url of point registry (including its port)")
+    } else {
+        params.addAtLeast("r", "Flag indicating you want to run the registry on this server")
     }
 
 
@@ -32,7 +34,7 @@ fun main(args: Array<String>) {
         reg.add(RegistryItem("http://10.0.0.29", 8888))
 
         RegistryServer(8888, reg).setup()
-        logger.info("Registry started \uD83C\uDF85")
+        logger.info{"Registry started \uD83C\uDF85"}
         return
     }
 
