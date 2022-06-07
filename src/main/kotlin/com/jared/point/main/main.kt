@@ -39,8 +39,9 @@ fun main(args: Array<String>) {
 
     //  Otehrwise we're a regular point and not the registry
     if(!params.validate()) {
-        params.document()
+        System.err.println(params.document())
         exitProcess(1)
+        return
     }
 
     //  Set up the network for later
