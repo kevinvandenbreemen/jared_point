@@ -38,9 +38,6 @@ dependencies {
     implementation("org.slf4j:slf4j-simple:$slf4jVersion")
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
 
-    val loggingVersion = "2.1.23"
-    implementation("io.github.microutils:kotlin-logging-jvm:$loggingVersion")
-
     implementation("com.github.kevinvandenbreemen:kevin-common:1.0.7.1000")
 
     testImplementation("org.amshove.kluent:kluent:1.68")

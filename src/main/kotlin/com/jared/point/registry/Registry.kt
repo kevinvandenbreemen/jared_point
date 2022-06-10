@@ -4,7 +4,6 @@ import com.vandenbreemen.kevincommon.nbl.Logger
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import mu.KotlinLogging
 import java.util.concurrent.Semaphore
 
 class Registry {

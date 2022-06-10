@@ -2,13 +2,10 @@ package com.jared.point.main
 
 import com.jared.point.client.Network
 import com.jared.point.registry.Registry
-import com.jared.point.registry.RegistryItem
 import com.jared.point.scheduler.JobRunner
 import com.vandenbreemen.kevincommon.cmd.CommandLineParameters
 import com.vandenbreemen.kevincommon.nbl.Level
 import com.vandenbreemen.kevincommon.nbl.Logger
-import mu.KotlinLogging
-import java.lang.Exception
 import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {

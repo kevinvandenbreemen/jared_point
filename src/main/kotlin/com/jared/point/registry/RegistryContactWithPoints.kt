@@ -1,15 +1,13 @@
 package com.jared.point.registry
 
-import com.jared.point.`interface`.RegistryClient
 import com.jared.point.client.PointAPI
-import mu.KotlinLogging
+import com.vandenbreemen.kevincommon.nbl.Logger
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.Exception
 
 class RegistryContactWithPoints {
 
-    private val logger = KotlinLogging.logger {  }
+    private val logger = Logger.getLogger(RegistryContactWithPoints::class.java)
 
     suspend fun testPoint(point: RegistryItem): Boolean {
         val registryClient: PointAPI = Retrofit.Builder()

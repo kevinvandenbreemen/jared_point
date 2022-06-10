@@ -1,10 +1,10 @@
 package com.jared.point.scheduler
 
+import com.vandenbreemen.kevincommon.nbl.Logger
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import mu.KotlinLogging
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -14,10 +14,10 @@ import java.util.concurrent.TimeUnit
 class JobRunner {
 
     companion object {
-        val DELAY = TimeUnit.MILLISECONDS.convert(1, TimeUnit.MINUTES)
+        val DELAY = TimeUnit.MILLISECONDS.convert(10, TimeUnit.SECONDS)
     }
 
-    private val  logger = KotlinLogging.logger {  }
+    private val  logger = Logger.getLogger(JobRunner::class.java)
 
     private val jobs: Vector<()->Unit> = Vector<()->Unit>()
     fun addTask(task: ()->Unit) {
