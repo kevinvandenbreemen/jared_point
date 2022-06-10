@@ -2,6 +2,7 @@ package com.jared.point.main
 
 import com.jared.point.registry.Registry
 import com.jared.point.registry.RegistryItem
+import com.vandenbreemen.kevincommon.nbl.Logger
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -18,7 +19,7 @@ class RegistryServer(private val port: Int, private val registry: Registry) {
 
     private val jsonSerializer = Json { ignoreUnknownKeys=true }
 
-    private val logger = KotlinLogging.logger {  }
+    private val logger = Logger.getLogger(RegistryServer::class.java)
 
     fun setup() {
         http.get("/health"){ request, response ->
@@ -40,10 +41,7 @@ class RegistryServer(private val port: Int, private val registry: Registry) {
                     RegistryItem.serializer(),
                     request.body()
                 ) as? RegistryItem)?.let { registryItem ->
-                    if (!registry.add(registryItem)) {
-                        response.status(409)
-                        return@post "already registered"
-                    }
+                    registry.register(registryItem)
                     return@post ""
                 } ?: response.status(400)
             } catch (jsonDecodingEx: SerializationException) {
