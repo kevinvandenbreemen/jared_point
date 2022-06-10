@@ -29,6 +29,7 @@ dependencies {
     val retrofitVersion = "2.9.0"
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.2.1")
 
     val coroutinesVersion = "1.6.1"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
@@ -40,7 +41,7 @@ dependencies {
     val loggingVersion = "2.1.23"
     implementation("io.github.microutils:kotlin-logging-jvm:$loggingVersion")
 
-    implementation("com.github.kevinvandenbreemen:kevin-common:1.0.6.1000")
+    implementation("com.github.kevinvandenbreemen:kevin-common:1.0.7.1000")
 
     testImplementation("org.amshove.kluent:kluent:1.68")
 
